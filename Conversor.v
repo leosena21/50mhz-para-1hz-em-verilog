@@ -5,23 +5,19 @@ module Conversor (
 	output reg saida
 );
 
-reg [24:0] count;
-
+reg [24:0] cnt;
 always @ (posedge clk, negedge rst_n)
-begin 
-	
+begin 	
 	if (!rst_n) begin
-		count <= 25'd0;
+		cnt <= 25'd0;
 		saida <= 0;
-	end
-	
+	end	
 	else begin 
-		count <= count + 25'b1;
+		cnt <= cnt + 25'b1;
 		
-		if (count == 25'd25000000) begin
+		if (cnt == 25'd25000000) begin
 			saida =~ saida;
 		end
-
 	end
 end	
 endmodule
